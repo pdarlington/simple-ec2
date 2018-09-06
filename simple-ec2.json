@@ -1,0 +1,149 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Metadata": {
+        "AWS::CloudFormation::Designer": {
+            "dec13c81-de1b-45dc-9c4e-b7c453d1cca5": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 240,
+                    "y": 90
+                },
+                "z": 1,
+                "embeds": [],
+                "isassociatedwith": [
+                    "2184e274-3aaf-4e57-b19e-fb8f8365fcee"
+                ],
+                "dependson": [
+                    "d08ee38b-34ae-47cc-8f0d-2398904903c2"
+                ]
+            },
+            "d08ee38b-34ae-47cc-8f0d-2398904903c2": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 110,
+                    "y": 100
+                },
+                "z": 1,
+                "embeds": []
+            },
+            "0a002f16-9739-48be-9ab7-95c48ffb8400": {
+                "source": {
+                    "id": "dec13c81-de1b-45dc-9c4e-b7c453d1cca5"
+                },
+                "target": {
+                    "id": "d08ee38b-34ae-47cc-8f0d-2398904903c2"
+                },
+                "z": 2
+            },
+            "2184e274-3aaf-4e57-b19e-fb8f8365fcee": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 203.83333333333334,
+                    "y": 177.33333333333334
+                },
+                "z": 0
+            },
+            "715e50be-43a7-49ad-9435-319a7b10fce4": {
+                "source": {
+                    "id": "dec13c81-de1b-45dc-9c4e-b7c453d1cca5"
+                },
+                "target": {
+                    "id": "2184e274-3aaf-4e57-b19e-fb8f8365fcee"
+                },
+                "z": 2
+            }
+        }
+    },
+    "Parameters": {
+        "SubnetID": {
+            "Type": "String",
+            "Default": "subnet-e70585bc",
+            "Description": "Subnetid"
+        },
+        "VPCID": {
+            "Type": "String",
+            "Default": "vpc-fff7bc98",
+            "Description": "VPCid"
+        },
+        "InstanceTypeParameter": {
+            "Type": "String",
+            "Default": "t2.micro",
+            "AllowedValues": [
+                "t2.micro",
+                "m1.small",
+                "m1.large"
+            ],
+            "Description": "Enter t2.micro, m1.small, or m1.large. Default is t2.micro."
+        }
+    },
+    "Resources": {
+        "EC2I1DHAM": {
+            "Type": "AWS::EC2::Instance",
+            "Properties": {
+                "SubnetId": {
+                    "Ref": "SubnetID"
+                },
+                "ImageId": "ami-acd005d5",
+                
+                "InstanceType": "t2.micro",
+                "KeyName": "jumpbox_key",
+                "UserData": "",
+                "SecurityGroupIds": [
+                    {
+                        "Ref": "EC2SG4S453"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "dec13c81-de1b-45dc-9c4e-b7c453d1cca5"
+                }
+            }
+        },
+        "EC2SG4S453": {
+            "Type": "AWS::EC2::SecurityGroup",
+                        "Properties": {
+                "VpcId": {
+                    "Ref": "VPCID"
+                },
+                "GroupDescription": "SG",
+                "SecurityGroupIngress": [
+                    {
+                        "CidrIp": "192.176.1.0/24",
+                        "FromPort": 22,
+                        "ToPort": 22,
+                        "IpProtocol": "tcp"
+                    },
+                    {
+                        "CidrIp": "94.31.60.1/32",
+                        "FromPort": 80,
+                        "ToPort": 80,
+                        "IpProtocol": "tcp"
+                    },
+                    {
+                        "CidrIp": "192.176.1.0/24",
+                        "FromPort": 80,
+                        "ToPort": 80,
+                        "IpProtocol": "tcp"
+                    }
+                ]
+            },
+
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "2184e274-3aaf-4e57-b19e-fb8f8365fcee"
+                }
+            }
+        }
+    }
+}
+
