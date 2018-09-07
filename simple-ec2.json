@@ -128,14 +128,21 @@
                         "FromPort": 80,
                         "ToPort": 80,
                         "IpProtocol": "tcp"
-                    },
+                    }
+                ],
+
+                "SecurityGroupEgress": [
                     {
-                        "CidrIp": "192.176.1.0/24",
+                        "CidrIp": "0.0.0.0/0",
                         "FromPort": 80,
                         "ToPort": 80,
                         "IpProtocol": "tcp"
                     }
                 ]
+
+
+
+
             },
 
             "Metadata": {
