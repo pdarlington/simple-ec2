@@ -120,7 +120,7 @@
                     {
                         "CidrIp": "192.176.1.0/24",
                         "FromPort": 20,
-                        "ToPort": 22,
+                        "ToPort": 20,
                         "IpProtocol": "tcp"
                     },
                     {
@@ -134,8 +134,8 @@
                 "SecurityGroupEgress": [
                     {
                         "CidrIp": "0.0.0.0/0",
-                        "FromPort": 22,
-                        "ToPort": 22,
+                        "FromPort": 20,
+                        "ToPort": 20,
                         "IpProtocol": "tcp"
                     }
                 ]
