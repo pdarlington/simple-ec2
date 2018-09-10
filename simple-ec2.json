@@ -96,7 +96,7 @@
                 
                 "InstanceType": "t2.micro",
                 "KeyName": "jumpbox_key",
-                "UserData": "",
+                "UserData": "{}",
                 "SecurityGroupIds": [
                     {
                         "Ref": "EC2SG4S453"
@@ -126,7 +126,7 @@
                     {
                         "CidrIp": "94.31.60.1/32",
                         "FromPort": 20,
-                        "ToPort": 20,
+                        "ToPort": 21,
                         "IpProtocol": "tcp"
                     }
                 ],
