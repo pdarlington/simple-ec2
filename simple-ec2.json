@@ -96,7 +96,7 @@
                 
                 "InstanceType": "t2.micro",
                 "KeyName": "jumpbox_key",
-                "UserData": "{}",
+                "UserData": "e30=",
                 "SecurityGroupIds": [
                     {
                         "Ref": "EC2SG4S453"
