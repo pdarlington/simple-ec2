@@ -118,7 +118,7 @@
                 "GroupDescription": "SG",
                 "SecurityGroupIngress": [
                     {
-                        "CidrIp": "192.168.3.4/32",
+                        "CidrIp": "0.0.0.0/0",
                         "FromPort": 3389,
                         "ToPort": 3389,
                         "IpProtocol": "tcp"
